@@ -14,16 +14,16 @@ int bitree[N][N];
 
 void add(int x, int y, int d)
 {
-	for (int i = x; i < n + 1; i += lowbit(i))
-		for (int j = y; j < n + 1; j += lowbit(j))
+	for (int i = x; i <= w; i += lowbit(i))
+		for (int j = y; j <= h; j += lowbit(j))
 			bitree[i][j] += d;
 }
 
 int sum(int x, int y)
 {
 	int sum = 0;
-	for (int i = x; i > 0; i -= lowbit(i))
-		for (int j = y; j > 0; j -= lowbit(j))
+	for (int i = x; i >= 1; i -= lowbit(i))
+		for (int j = y; j >= 1; j -= lowbit(j))
 			sum += bitree[i][j];
 
 	return sum;
